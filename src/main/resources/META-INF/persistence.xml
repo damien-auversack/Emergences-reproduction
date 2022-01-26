@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1"
+	xmlns="http://xmlns.jcp.org/xml/ns/persistence"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+
+	<persistence-unit name="dba1" transaction-type="JTA">
+		<jta-data-source>jdbc/groupeA1</jta-data-source>
+		<class>be.helha.aemt.entities.Adresse</class>
+		<class>be.helha.aemt.entities.Utilisateur</class>
+		<class>be.helha.aemt.entities.Reunion</class>
+		<class>be.helha.aemt.entities.Evenement</class>
+		<class>be.helha.aemt.entities.Cycle</class>
+		<class>be.helha.aemt.entities.Activite</class>
+		<class>be.helha.aemt.entities.ReunionReservee</class>
+
+		<exclude-unlisted-classes>true</exclude-unlisted-classes>
+
+		<properties>
+
+		    <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
+ 		    <property name="javax.persistence.jdbc.url" value="jdbc:mysql://34.253.160.66/dba1"/> 
+<!-- 		    <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/dba1"/> -->
+		    <property name="javax.persistence.schema-generation.database.action" value="create"/>
+		    
+ 		    <property name="javax.persistence.jdbc.user" value="ga1"/> 
+ 			<property name="javax.persistence.jdbc.password" value="8841"/>  
+		    
+<!-- 			<property name="javax.persistence.jdbc.user" value="test"/> -->
+<!-- 			<property name="javax.persistence.jdbc.password" value="test"/> -->
+		</properties>
+	</persistence-unit>
+</persistence>

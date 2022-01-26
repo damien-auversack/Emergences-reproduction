@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:o="http://omnifaces.org/ui">
+	<h:head>
+		<title>emergences</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<link rel="shortcut icon" type="image/x-icon" href="#{request.contextPath}/img/favicon.ico"/>
+		<link href="#{request.contextPath}/css/bootstrap-grid.min.css" rel="stylesheet" type="text/css"/>
+		
+        <link href="#{request.contextPath}/css/style.css" rel="stylesheet" type="text/css"/>
+        <link href="#{request.contextPath}/css/styleReset.css" rel="stylesheet" type="text/css"/>
+        <link href="#{request.contextPath}/css/styleColor.css" rel="stylesheet" type="text/css"/>
+        <link href="#{request.contextPath}/css/styleFont.css" rel="stylesheet" type="text/css"/>
+        <link href="#{request.contextPath}/css/styleBorder.css" rel="stylesheet" type="text/css"/>
+	</h:head>
+	<body class="resetMarginPadding">
+		<ui:include src="../navbar-connected.xhtml"/>
+		<h1 class='col-8 ml-auto mr-auto pt-3 alignCenter'>Ajouter une date pour ce cycle :</h1>
+		<h:form><h:inputHidden binding="#{id}" value="#{param.id}"></h:inputHidden></h:form>
+		<div class="container-fluid">
+				<div class="row">	
+					<div class="bgLoginColor ml-auto mr-auto radius-2 mb-4 pt-4 pb-4 pl-4 pr-4 width-Activity alignCenter">  
+						<o:form includeViewParams="true" id="form" class="alignCenter">
+							<div class="col-10 col-sm-8 col-md-7 col-lg-7 col-xl-7 
+ 	 		            				ml-auto mr-auto mb-3"> 
+	 		            				Date :
+			            		<h:inputText binding="#{date}"	 a:placeholder="JJ/MM/AAAA" required="true"
+			            						class="radius-1 alignCenter boxShadowInput width-full borderNone height-3" />
+			            	</div>	
+							<h:dataTable id="dataTable" 
+								value ="#{cycleControl.getCycleDatesByID(id.value)}"
+								var = "dates">
+								<h:column>
+									#{dates}
+								</h:column>
+							</h:dataTable>    
+							<div class="col-10 col-sm-8 col-md-7 col-lg-7 col-xl-7 ml-auto mr-auto"> 
+						    	<h:commandButton id="button"	value="Ajouter" action="#{cycleControl.addDate(date.value,id.value)}"
+						            	class="radius-1 cursorPointer lightsteelblueHover boxShadowInput width-full borderNone height-5 bgGhostwhite font-xLarge font-Verdana">    				
+						       	</h:commandButton>		
+						    </div> 
+						</o:form>
+						<h:form>
+							<h:commandButton 	value="Terminer la création" action="#{navigationControl.doAdministration()}"
+						    	class="radius-1 cursorPointer lightsteelblueHover boxShadowInput width-full borderNone height-5 bgGhostwhite font-xLarge font-Verdana"/> 		
+						</h:form>
+						<div class="error-field">#{cycleControl.messageErreur}</div>
+						<div class="success-field">#{cycleControl.messageReussite}</div>
+					</div>
+				</div>
+			</div>
+	</body>
+</html>

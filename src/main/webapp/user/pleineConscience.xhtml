@@ -1,0 +1,305 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+<h:head>
+	<title>emergences</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<link rel="shortcut icon" type="image/x-icon"
+		href="#{request.contextPath}/img/favicon.ico" />
+	<link href="#{request.contextPath}/css/bootstrap-grid.min.css"
+		rel="stylesheet" type="text/css" />
+
+	<link href="#{request.contextPath}/css/style.css" rel="stylesheet"
+		type="text/css" />
+	<link href="#{request.contextPath}/css/styleReset.css" rel="stylesheet"
+		type="text/css" />
+	<link href="#{request.contextPath}/css/styleColor.css" rel="stylesheet"
+		type="text/css" />
+	<link href="#{request.contextPath}/css/styleFont.css" rel="stylesheet"
+		type="text/css" />
+	<link href="#{request.contextPath}/css/styleBorder.css"
+		rel="stylesheet" type="text/css" />
+</h:head>
+<body class="resetMarginPadding">
+
+	<ui:include src="../navbar-connected.xhtml"/>
+
+	<!-- CYCLES -->
+
+	<h1 class='col-8 ml-auto mr-auto pt-3 alignCenter' value="#{activiteControl.getCurrentUtilisateur()}">Nos Cycles</h1>	
+		
+		<h2 class="col-8 ml-auto mr-auto pt-3 alignCenter">En présentiel</h2>
+		
+		<h:dataTable class='col-12'
+			value = "#{cycleControl.getPresentielCycle()}"
+			var = "cycle">		
+			
+			<h:column class='col-12'>		
+				<div class="container-fluid">
+			          <div class="row">
+			            <div class="bgLoginColor ml-auto mr-auto radius-2 mb-4 pb-4 pl-4 pr-4 width-Activity alignCenter">            				           
+				           		
+					        <div>
+								<h2>Dates du cycle</h2>
+							</div>
+	
+							<ui:repeat var="string" value="#{cycle.getListDateString()}"
+								varStatus="index">
+								<h:outputText value="#{string}" />
+								<ui:fragment rendered="#{!index.last}">, </ui:fragment>
+							</ui:repeat>
+				           		
+			           		<div>
+			           			<h2>#{cycle.nom}</h2>         			
+			           		</div>	
+			           		<div>
+								<img class="ml-auto mr-auto" alt="Pas d'image" src="data:image/jpg;base64,#{cycle.byteArrayToImage()}"></img>
+							</div>	           		
+			           		<div class='pb-1'>
+			           			<h3>Description</h3>
+			           			<div>#{cycle.description}</div>		    
+			           		</div>		           		
+							<div class='pb-4'>
+								<h3>Adresse</h3>
+			           			<div>#{cycle.adresse.getRue()} #{cycle.adresse.getNumero()}, #{cycle.adresse.getCodePostal()} #{cycle.adresse.getVille()}</div>		    
+			           		</div>			
+			           		
+			           		<div class='pb-2'>
+			           			<h:form>
+									<h:commandButton class="bgGhostwhite radius-2 boxShadowInput height-3 width-15 cursorPointer" value="S'inscrire" action="#{cycleControl.addParticipant(cycle)}" disabled="#{cycleControl.isUserSubscribeOnCycle(cycle)}"></h:commandButton>
+								</h:form>
+			           		</div>	 			           	     	   	
+			           			           		
+			           		<div class='spaceBetween'>
+			           			<span>Place : #{cycle.places}</span>
+			           			<span>Prix : #{cycle.prix}€</span>
+			           		</div>		
+			           					           			          				       		        
+			            </div>
+			          </div>
+				</div>													
+			</h:column>
+		</h:dataTable>
+		
+		<h2 class="col-8 ml-auto mr-auto pt-3 alignCenter">En ligne</h2>
+		<h:dataTable class='col-12'
+			value = "#{cycleControl.getOnlineCycle()}"
+			var = "cycle">		
+			
+			<h:column class='col-12'>		
+				<div class="container-fluid">
+			          <div class="row">
+			            <div class="bgLoginColor ml-auto mr-auto radius-2 mb-4 pb-4 pl-4 pr-4 width-Activity alignCenter">            				           
+				           		
+				           	<div>
+								<h2>Dates du cycle</h2>
+							</div>
+	
+							<ui:repeat var="string" value="#{cycle.getListDateString()}"
+								varStatus="index">
+								<h:outputText value="#{string}" />
+								<ui:fragment rendered="#{!index.last}">, </ui:fragment>
+							</ui:repeat>
+				           		
+			           		<div>
+			           			<h2>#{cycle.nom}</h2>         			
+			           		</div>	
+			           		<div>
+								<img class="ml-auto mr-auto" alt="Pas d'image" src="data:image/jpg;base64,#{cycle.byteArrayToImage()}"></img>
+							</div>	           		
+			           		<div class='pb-1'>
+			           			<h3>Description</h3>
+			           			<div>#{cycle.description}</div>		    
+			           		</div>		           		
+							<div class='pb-4'>
+								<h3>Adresse</h3>
+			           			<div>#{cycle.adresse.getRue()} #{cycle.adresse.getNumero()}, #{cycle.adresse.getCodePostal()} #{cycle.adresse.getVille()}</div>		    
+			           		</div>	
+			           		
+			           		<div class='pb-2'>
+			           			<h:form>
+									<h:commandButton class="bgGhostwhite radius-2 boxShadowInput height-3 width-15 cursorPointer" value="S'inscrire" action="#{cycleControl.addParticipant(cycle)}" disabled="#{cycleControl.isUserSubscribeOnCycle(cycle)}"></h:commandButton>
+								</h:form>
+			           		</div>					           	         	   	
+			           			           		
+			           		<div class='spaceBetween'>
+			           			<span>Place : #{cycle.places}</span>
+			           			<span>Prix : #{cycle.prix}€</span>
+			           		</div>		
+			           					           			          				       		        
+			            </div>
+			          </div>
+				</div>													
+			</h:column>
+		</h:dataTable>
+	
+	<!-- ACTIVITES -->
+	
+	<h1 class='col-8 ml-auto mr-auto pt-3 alignCenter' value="#{activiteControl.getCurrentUtilisateur()}">Nos Activités</h1>	
+		
+		<h2 class="col-8 ml-auto mr-auto pt-3 alignCenter">En présentiel</h2>
+		
+		<h:dataTable class='col-12'
+			value = "#{activiteControl.getPresentielActivite()}"
+			var = "activite">		
+			
+			<h:column class='col-12'>		
+				<div class="container-fluid">
+			          <div class="row">
+			            <div class="bgLoginColor ml-auto mr-auto radius-2 mb-4 pb-4 pt-4 pl-4 pr-4 width-Activity alignCenter">            				           
+				           		
+				           	<div class='alignRight'>       			
+			           			<h:outputText value="#{activite.getDateString()}" ></h:outputText>          			
+			           		</div>	
+			           		<div>
+			           			<h2>#{activite.nom}</h2>         			
+			           		</div>	
+			           		<div>
+								<img class="ml-auto mr-auto" alt="Pas d'image" src="data:image/jpg;base64,#{activite.byteArrayToImage()}"></img>
+							</div>	           		
+			           		<div class='pb-1'>
+			           			<h3>Description</h3>
+			           			<div>#{activite.description}</div>		    
+			           		</div>		           		
+							<div class='pb-4'>
+								<h3>Adresse</h3>
+			           			<div>#{activite.adresse.getRue()} #{activite.adresse.getNumero()}, #{activite.adresse.getCodePostal()} #{activite.adresse.getVille()}</div>		    
+			           		</div>			         	   	
+			           			           	
+			           		<div class='pb-2'>
+			           			<h:form>
+									<h:commandButton class="bgGhostwhite radius-2 boxShadowInput height-3 width-15 cursorPointer" value="S'inscrire" action="#{activiteControl.addParticipant(activite)}" disabled="#{activiteControl.isUserSubscribeOnActivite(activite)}"></h:commandButton>
+								</h:form>
+			           		</div>	
+			           			           		
+			           		<div class='spaceBetween'>
+			           			<span>Place : #{activite.places}</span>
+			           			<span>Prix : #{activite.prix}€</span>
+			           		</div>		
+			           					           			          				       		        
+			            </div>
+			          </div>
+				</div>													
+			</h:column>
+		</h:dataTable>
+		
+		<h2 class="col-8 ml-auto mr-auto pt-3 alignCenter">En ligne</h2>
+		<h:dataTable class='col-12'
+			value = "#{activiteControl.getOnlineActivite()}"
+			var = "activite">		
+			
+			<h:column class='col-12'>		
+				<div class="container-fluid">
+			          <div class="row">
+			            <div class="bgLoginColor ml-auto mr-auto radius-2 mb-4 pt-4 pb-4 pl-4 pr-4 width-Activity alignCenter">            				           
+				           	
+				           	<div class='alignRight'>       			
+			           			<h:outputText value="#{activite.getDateString()}" ></h:outputText>          			
+			           		</div>
+			           		<div>
+			           			<h2>#{activite.nom}</h2>         			
+			           		</div>		    
+			           		<div>
+								<img class="ml-auto mr-auto" alt="Pas d'image" src="data:image/jpg;base64,#{activite.byteArrayToImage()}"></img>
+							</div>       		
+			           		<div class='pb-1'>
+			           			<h3>Description</h3>
+			           			<div>#{activite.description}</div>		    
+			           		</div>		           		
+							<div class='pb-4'>
+								<h3>Adresse</h3>
+			           			<div>#{activite.adresse.getRue()} #{activite.adresse.getNumero()}, #{activite.adresse.getCodePostal()} #{activite.adresse.getVille()}</div>		    
+			           		</div>		
+			           		
+			           		<div class='pb-2'>
+			           			<h:form>
+									<h:commandButton class="bgGhostwhite radius-2 boxShadowInput height-3 width-15 cursorPointer" value="S'inscrire" action="#{activiteControl.addParticipant(activite)}" disabled="#{activiteControl.isUserSubscribeOnActivite(activite)}"></h:commandButton>
+								</h:form>
+			           		</div>		
+  		
+			           		<div class='spaceBetween'>
+			           			<span>Place : #{activite.places}</span>
+			           			<span>Prix : #{activite.prix}€</span>
+			           		</div>		
+			           					           			          				       		        
+			            </div>
+			          </div>
+				</div>													
+			</h:column>
+		</h:dataTable>
+	
+	<!-- EVENEMENT -->
+	<h1 class='col-8 ml-auto mr-auto pt-3 alignCenter' value="#{activiteControl.getCurrentUtilisateur()}">Nos Evenements</h1>	
+		
+		<h2 class="col-8 ml-auto mr-auto pt-3 alignCenter">En présentiel</h2>
+		
+		<h:dataTable class='col-12'
+			value = "#{evenementControl.getPresentielEvenement()}"
+			var = "evenement">		
+			
+			<h:column class='col-12'>		
+				<div class="container-fluid">
+			          <div class="row">
+			            <div class="bgLoginColor ml-auto mr-auto radius-2 mb-4 pt-4 pb-4 pl-4 pr-4 width-Activity alignCenter">            				           
+				           	<div class='alignRight'>       			
+			           			<h:outputText value="#{evenement.getDateString()}" ></h:outputText>          			
+			           		</div>	
+			           		<div>
+			           			<h2>#{evenement.nom}</h2>         			
+			           		</div>		        
+			           		<div>
+								<img class="ml-auto mr-auto" alt="Pas d'image" src="data:image/jpg;base64,#{evenement.byteArrayToImage()}"></img>
+							</div>   		
+			           		<div class='pb-1'>
+			           			<h3>Description</h3>
+			           			<div>#{evenement.description}</div>		    
+			           		</div>		           		
+							<div class='pb-4'>
+								<h3>Adresse</h3>
+			           			<div>#{evenement.adresse.getRue()} #{evenement.adresse.getNumero()}, #{evenement.adresse.getCodePostal()} #{evenement.adresse.getVille()}</div>		    
+			           		</div>		         	   	
+			           					           			          				       		        
+			            </div>
+			          </div>
+				</div>													
+			</h:column>
+		</h:dataTable>
+		
+		<h2 class="col-8 ml-auto mr-auto pt-3 alignCenter">En ligne</h2>
+		<h:dataTable class='col-12'
+			value = "#{evenementControl.getOnlineEvenement()}"
+			var = "evenement">		
+			
+			<h:column class='col-12'>		
+				<div class="container-fluid">
+			          <div class="row">
+			            <div class="bgLoginColor ml-auto mr-auto radius-2 mb-4 pt-4 pb-4 pl-4 pr-4 width-Activity alignCenter">            				           
+				           	<div class='alignRight'>       			
+			           			<h:outputText value="#{evenement.getDateString()}" ></h:outputText>          			
+			           		</div>		
+			           		<div>
+			           			<h2>#{evenement.nom}</h2>         			
+			           		</div>		  
+			           		<div>
+								<img class="ml-auto mr-auto" alt="Pas d'image" src="data:image/jpg;base64,#{evenement.byteArrayToImage()}"></img>
+							</div>         		
+			           		<div class='pb-1'>
+			           			<h3>Description</h3>
+			           			<div>#{evenement.description}</div>		    
+			           		</div>		           		
+							<div class='pb-4'>
+								<h3>Adresse</h3>
+			           			<div>#{evenement.adresse.getRue()} #{evenement.adresse.getNumero()}, #{evenement.adresse.getCodePostal()} #{evenement.adresse.getVille()}</div>		    
+			           		</div>			         	   				           			           			
+			           					           			          				       		        
+			            </div>
+			          </div>
+				</div>													
+			</h:column>
+		</h:dataTable>
+</body>
+</html>

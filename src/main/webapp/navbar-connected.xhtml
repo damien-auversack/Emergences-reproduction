@@ -1,0 +1,56 @@
+<ui:composition 
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:f="http://xmlns.jcp.org/jsf/core"
+    xmlns:h="http://xmlns.jcp.org/jsf/html"
+    xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+    xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    
+    <nav class="container-fluid bgNavBar resetMarginPadding height-6 borderCollapse borderBottom">
+		<div class="row navbarContainer resetMarginPadding">
+		
+			<div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-1 
+						borderRight height-full resetMarginPadding cursorPointer ghostwhiteHover">
+				<h:link value="Accueil" outcome="#{navigationControl.doUser()}" 
+						class="alignCenter height-6 width-fullVh decorationNone colorInherit alignVerticaly" />
+			</div>
+			
+			<div class="col-1 col-sm-1 col-md-1 col-lg-1 col-xl-1 
+						borderRight height-full resetMarginPadding cursorPointer ghostwhiteHover">
+				<h:link value="Pleine conscience" outcome="#{navigationControl.doPleineConscienceUser()}"  
+						class="alignCenter height-6 width-fullVh decorationNone colorInherit alignVerticaly" />
+			</div>
+			
+			<div class="col-1 col-sm-1 col-md-1 col-lg-2 col-xl-1 
+						borderRight	height-full resetMarginPadding cursorPointer ghostwhiteHover">
+				<h:link value="Cycles" outcome="#{navigationControl.doCycleUser()}" 
+						class="alignCenter height-6 width-fullVh decorationNone colorInherit alignVerticaly" />
+			</div>
+			
+			<div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-1 
+						borderRight	height-full resetMarginPadding cursorPointer ghostwhiteHover">
+				<h:link value="Evenements" outcome="#{navigationControl.doEvenementUser()}" 
+						class="alignCenter height-6 width-fullVh decorationNone colorInherit alignVerticaly" />
+			</div>
+			
+			<div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-1 
+						borderRight	height-full resetMarginPadding cursorPointer ghostwhiteHover">
+				<h:link value="Activités" outcome="#{navigationControl.doActiviteUser()}" 
+						class="alignCenter height-6 width-fullVh decorationNone colorInherit alignVerticaly" />
+			</div>
+			
+			<div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-1 
+						ml-auto borderLeft borderRight height-full resetMarginPadding cursorPointer ghostwhiteHover alignCenter">					
+				<h:link value="Administration" outcome="#{navigationControl.doAdministration()}" 
+						class="alignCenter height-6 width-fullVh decorationNone colorInherit alignVerticaly" />
+			</div>	
+			
+			<div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-1 
+						borderRight height-full resetMarginPadding cursorPointer ghostwhiteHover alignCenter">					
+				<h:form>
+					<h:commandButton class="btnDecorationNone height-6" value="Se déconnecter" action="#{navigationControl.logout()}"></h:commandButton>
+				</h:form>
+			</div>	
+						
+		</div>
+	</nav>  
+</ui:composition>

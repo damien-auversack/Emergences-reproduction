@@ -1,0 +1,30 @@
+/* Border */
+.borderLeft {
+	border-left: solid black 1px;
+}
+.borderRight {
+	border-right: solid black 1px;
+}
+.borderBottom {
+	border-bottom: solid black 1px;	
+}
+.borderTest {
+	border: solid black 1px;
+}
+.borderCollapse {
+	border-collapse: separate;
+}
+
+/* Border Radius */
+.radius-1 {
+	border-radius: 5px;
+}
+.radius-2 {
+	border-radius: 10px;
+}
+.radius-3 {
+	border-radius: 15px;
+}
+.radius-4 {
+	border-radius: 20px;
+}

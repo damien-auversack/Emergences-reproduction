@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+	<head>
+		<title>emergences</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<link rel="shortcut icon" type="image/x-icon" href="#{request.contextPath}/img/favicon.ico"/>
+		<link href="#{request.contextPath}/css/bootstrap-grid.min.css" rel="stylesheet" type="text/css"/>
+		
+        <link href="#{request.contextPath}/css/style.css" rel="stylesheet" type="text/css"/>
+        <link href="#{request.contextPath}/css/styleReset.css" rel="stylesheet" type="text/css"/>
+        <link href="#{request.contextPath}/css/styleColor.css" rel="stylesheet" type="text/css"/>
+        <link href="#{request.contextPath}/css/styleFont.css" rel="stylesheet" type="text/css"/>
+        <link href="#{request.contextPath}/css/styleBorder.css" rel="stylesheet" type="text/css"/>
+	</head>
+	<body class="resetMarginPadding">
+		<ui:include src="../navbar-connected.xhtml"/>
+		
+		<h1 class='col-8 ml-auto mr-auto pt-3 alignCenter'>Ajout d'évènement</h1>	
+		<div class="container-fluid">
+				<div class="row">	
+					<div class="bgLoginColor ml-auto mr-auto radius-2 mb-4 pt-4 pb-4 pl-4 pr-4 width-Activity alignCenter">  
+						<h:form class="alignCenter">
+		            	
+		            	<div class="col-10 col-sm-8 col-md-7 col-lg-7 col-xl-7 
+		            				ml-auto mr-auto mb-3">
+		            				Présentiel :
+		            		<h:selectBooleanCheckbox 	value="#{evenementControl.presentiel}"
+		            									class="radius-1 alignCenter boxShadowInput width-full borderNone height-3"/>  
+		            	</div>
+		            	
+		            	<div class="col-10 col-sm-8 col-md-7 col-lg-7 col-xl-7 
+		            				ml-auto mr-auto mb-3">
+		            				Nom :
+		            		<h:inputText 	value="#{evenementControl.nom}" a:placeholder="Nom" required="true"
+		            						class="radius-1 alignCenter boxShadowInput width-full borderNone height-3" />
+		            	</div>
+		            	
+		            	<div class="col-10 col-sm-8 col-md-7 col-lg-7 col-xl-7 
+		            				ml-auto mr-auto mb-3">
+		            				Description :
+		            		<h:inputText 	value="#{evenementControl.description}" a:placeholder="Description" required="true"
+		            						class="radius-1 alignCenter boxShadowInput width-full borderNone height-3" />
+		            	</div>
+		            	
+		            	<div class="col-10 col-sm-8 col-md-7 col-lg-7 col-xl-7 
+ 		            				ml-auto mr-auto mb-3">
+ 		            				Date :
+		            		<h:inputText 	value="#{evenementControl.date}" a:placeholder="JJ/MM/AAAA" required="true"
+		            						class="radius-1 alignCenter boxShadowInput width-full borderNone height-3" />
+		            	</div>
+		            	
+		            	<div class="col-10 col-sm-8 col-md-7 col-lg-7 col-xl-7 
+		            				ml-auto mr-auto mb-3">
+		            				Ville :
+		            		<h:inputText 	value="#{evenementControl.ville}" a:placeholder="Ville" required="true"
+		            						class="radius-1 alignCenter boxShadowInput width-full borderNone height-3" />
+		            	</div>
+		            	
+		            	<div class="col-10 col-sm-8 col-md-7 col-lg-7 col-xl-7 
+		            				ml-auto mr-auto mb-3">
+		            				Code postal :
+		            		<h:inputText 	value="#{evenementControl.codePostal}" a:placeholder="Code postal" required="true"
+		            						class="radius-1 alignCenter boxShadowInput width-full borderNone height-3" />
+		            	</div>
+		            	
+		            	<div class="col-10 col-sm-8 col-md-7 col-lg-7 col-xl-7 
+		            				ml-auto mr-auto mb-3">
+		            				Rue :
+		            		<h:inputText 	value="#{evenementControl.rue}" a:placeholder="Rue" required="true"
+		            						class="radius-1 alignCenter boxShadowInput width-full borderNone height-3" />
+		            	</div>
+		            	
+		            	<div class="col-10 col-sm-8 col-md-7 col-lg-7 col-xl-7 
+		            				ml-auto mr-auto mb-3">
+		            				Numero :
+		            		<h:inputText 	value="#{evenementControl.numero}" a:placeholder="Numero" required="true"
+		            						class="radius-1 alignCenter boxShadowInput width-full borderNone height-3" />
+		            	</div>
+		            
+		            	<div class="col-10 col-sm-8 col-md-7 col-lg-7 col-xl-7 
+		            				ml-auto mr-auto">
+		            		<h:commandButton 	value="Ajouter" action="#{evenementControl.addEvenement()}" 
+		            							class="radius-1 cursorPointer lightsteelblueHover boxShadowInput width-full borderNone height-5 bgGhostwhite font-xLarge font-Verdana" />		
+		            	</div> 
+		            			          		            	
+						<div class="error-field">#{evenementControl.messageErreur}</div>
+						<div class="success-field">#{evenementControl.messageReussite}</div>		
+													
+					</h:form>	
+					</div>
+				</div>
+			</div>
+	</body>
+</html>

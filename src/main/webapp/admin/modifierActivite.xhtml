@@ -1,0 +1,153 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:o="http://omnifaces.org/ui">
+<h:head>
+	<title>emergences</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<link rel="shortcut icon" type="image/x-icon"
+		href="#{request.contextPath}/img/favicon.ico" />
+	<link href="#{request.contextPath}/css/bootstrap-grid.min.css"
+		rel="stylesheet" type="text/css" />
+
+	<link href="#{request.contextPath}/css/style.css" rel="stylesheet"
+		type="text/css" />
+	<link href="#{request.contextPath}/css/styleReset.css" rel="stylesheet"
+		type="text/css" />
+	<link href="#{request.contextPath}/css/styleColor.css" rel="stylesheet"
+		type="text/css" />
+	<link href="#{request.contextPath}/css/styleFont.css" rel="stylesheet"
+		type="text/css" />
+	<link href="#{request.contextPath}/css/styleBorder.css"
+		rel="stylesheet" type="text/css" />
+</h:head>
+<body class="resetMarginPadding">
+	<ui:include src="../navbar-connected.xhtml" />
+
+	<h1 class="col-8 ml-auto mr-auto pt-3 alignCenter">Modifier
+		l'activité</h1>
+	<h:outputText value="#{activiteControl.getActiviteById(param.id)}"
+		 style="display:none"/>
+	<div>
+		<div class="container-fluid">
+			<div class="row">
+				<div
+					class="bgLoginColor ml-auto mr-auto radius-2 mb-4 pt-4 pb-4 pl-4 pr-4 width-Activity alignCenter">
+					<h:form class="alignCenter" id="myForm">
+						<h:inputText value="#{activiteControl.id}" id="idActivite"
+							style="display:none" />
+
+						<div
+							class="col-10 col-sm-8 col-md-7 col-lg-7 col-xl-7 
+			            				ml-auto mr-auto mb-3">
+							Présentiel :
+							<h:selectBooleanCheckbox value="#{activiteControl.presentiel}"
+								class="radius-1 alignCenter boxShadowInput width-full borderNone height-3"
+								id="presentiel" />
+						</div>
+
+						<div
+							class="col-10 col-sm-8 col-md-7 col-lg-7 col-xl-7 
+			            				ml-auto mr-auto mb-3">
+							Nom :
+							<h:inputText value="#{activiteControl.nom}" required="true"
+								class="radius-1 alignCenter boxShadowInput width-full borderNone height-3"
+								id="nom" />
+						</div>
+
+						<div
+							class="col-10 col-sm-8 col-md-7 col-lg-7 col-xl-7 
+			            				ml-auto mr-auto mb-3">
+							Description :
+							<h:inputText value="#{activiteControl.description}"
+								required="true"
+								class="radius-1 alignCenter boxShadowInput width-full borderNone height-3"
+								id="description" />
+						</div>
+
+						<div
+							class="col-10 col-sm-8 col-md-7 col-lg-7 col-xl-7 
+		            				ml-auto mr-auto mb-3">
+							Date :
+							<h:inputText value="#{activiteControl.date}" required="true"
+								class="radius-1 alignCenter boxShadowInput width-full borderNone height-3"
+								id="date" />
+						</div>
+
+						<div
+							class="col-10 col-sm-8 col-md-7 col-lg-7 col-xl-7 
+			            				ml-auto mr-auto mb-3">
+							Prix :
+							<h:inputText value="#{activiteControl.prix}" required="true"
+								class="radius-1 alignCenter boxShadowInput width-full borderNone height-3"
+								id="prix" />
+						</div>
+
+						<div
+							class="col-10 col-sm-8 col-md-7 col-lg-7 col-xl-7 
+			            				ml-auto mr-auto mb-3">
+							Nombre de places :
+							<h:inputText value="#{activiteControl.places}" required="true"
+								class="radius-1 alignCenter boxShadowInput width-full borderNone height-3"
+								id="places" />
+						</div>
+
+						<div
+							class="col-10 col-sm-8 col-md-7 col-lg-7 col-xl-7 
+			            				ml-auto mr-auto mb-3">
+							Ville :
+							<h:inputText value="#{activiteControl.ville}" required="true"
+								class="radius-1 alignCenter boxShadowInput width-full borderNone height-3"
+								id="ville" />
+						</div>
+
+						<div
+							class="col-10 col-sm-8 col-md-7 col-lg-7 col-xl-7 
+		            				ml-auto mr-auto mb-3">
+							Code postal :
+							<h:inputText value="#{activiteControl.codePostal}"
+								required="true"
+								class="radius-1 alignCenter boxShadowInput width-full borderNone height-3"
+								id="codePostal" />
+						</div>
+
+						<div
+							class="col-10 col-sm-8 col-md-7 col-lg-7 col-xl-7 
+		            				ml-auto mr-auto mb-3">
+
+							Rue :
+							<h:inputText value="#{activiteControl.rue}" required="true"
+								class="radius-1 alignCenter boxShadowInput width-full borderNone height-3"
+								id="rue" />
+						</div>
+
+						<div
+							class="col-10 col-sm-8 col-md-7 col-lg-7 col-xl-7 
+			            				ml-auto mr-auto mb-3">
+							Numero :
+							<h:inputText value="#{activiteControl.numero}" required="true"
+								class="radius-1 alignCenter boxShadowInput width-full borderNone height-3"
+								id="numero" />
+						</div>
+
+						<div
+							class="col-10 col-sm-8 col-md-7 col-lg-7 col-xl-7 
+			            				ml-auto mr-auto">
+							<h:commandButton value="Valider"
+								action="#{activiteControl.modifierActivite()}"
+								class="radius-1 cursorPointer lightsteelblueHover boxShadowInput width-full borderNone height-5 bgGhostwhite font-xLarge font-Verdana">
+							</h:commandButton>
+						</div>
+					</h:form>
+
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

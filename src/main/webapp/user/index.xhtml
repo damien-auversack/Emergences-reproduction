@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+<h:head>
+	<title>emergences</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<link rel="shortcut icon" type="image/x-icon"
+		href="#{request.contextPath}/img/favicon.ico" />
+	<link href="#{request.contextPath}/css/bootstrap-grid.min.css"
+		rel="stylesheet" type="text/css" />
+
+	<link href="#{request.contextPath}/css/style.css" rel="stylesheet"
+		type="text/css" />
+	<link href="#{request.contextPath}/css/styleReset.css" rel="stylesheet"
+		type="text/css" />
+	<link href="#{request.contextPath}/css/styleColor.css" rel="stylesheet"
+		type="text/css" />
+	<link href="#{request.contextPath}/css/styleFont.css" rel="stylesheet"
+		type="text/css" />
+	<link href="#{request.contextPath}/css/styleBorder.css"
+		rel="stylesheet" type="text/css" />
+</h:head>
+<body class="resetMarginPadding">
+	<ui:include src="../navbar-connected.xhtml" />
+
+	<h1 class="col-8 ml-auto mr-auto pt-3 alignCenter">Accueil</h1>
+
+	<h2 class="col-8 ml-auto mr-auto pt-3 alignCenter"
+		value="#{activiteControl.getCurrentUtilisateur()}">Bienvenue
+		#{activiteControl.username}</h2>
+
+	<div class="col-6 ml-auto mr-auto pt-1 pb-1 alignCenter borderTest bgLightsteelblue radius-2">
+		<p class="ml-auto mr-auto font-Verdana justifyText">
+			Nous avons une expérience de près de 15 ans dans l'animation de cycles
+			de pleine conscience et proposons différents programmes de méditation
+			à Bruxelles, en Belgique et en ligne. 
+		</p>
+		<p class="ml-auto mr-auto font-Verdana justifyText">
+			Notre offre comprend aussi des
+			ateliers et cycles de préparation à la naissance, des ateliers de
+			méditation et écopsychologie, des retraites en silence, des
+			conférences.
+		</p>
+	</div>
+</body>
+</html>

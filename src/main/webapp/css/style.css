@@ -1,0 +1,110 @@
+.spaceBetween {
+	display:flex;
+    justify-content: space-between;
+}
+
+@media all and (max-width: 560px) {
+  .table-wrapper {
+    overflow-x: auto;
+    overflow-y:hidden; 
+    height:100%;        
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+.hide { 
+    display: none;
+}
+
+/* Align */
+.alignCenter {
+	text-align: center;
+}
+
+.alignLeft {
+	text-align: left;
+}
+
+.alignRight {
+	text-align: right;
+}
+
+.alignVerticaly {
+	display: table-cell;
+    vertical-align: middle;
+}
+.justifyText {
+  text-align: justify;
+}
+
+/* Box shadow */
+.boxShadowInput {
+	box-shadow: inset 0 0 2px #000000;
+}
+
+/*picture*/
+img {
+  display: block;
+  max-width:230px;
+  max-height:95px;
+  width: auto;
+  height: auto;
+}
+
+/* Size */
+
+.width-full {
+	width:100%;
+}
+
+.width-fullVh {
+	 width: 100vh;
+}
+
+.width-3 {
+	width:30px;
+}
+
+.width-4 {
+	width:40px;
+}
+
+.width-5 {
+	width:50px;
+}
+
+.width-6 {
+	width:60px;
+}
+
+.width-15 {
+	width:150px;
+}
+
+.width-Activity {
+	width:600px;
+}
+
+.width-paragraphe {
+	width:800px;
+}
+
+.height-full {
+	height:100%;
+}
+
+.height-3 {
+	height:30px;
+}
+
+.height-4 {
+	height:40px;
+}
+
+.height-5 {
+	height:50px;
+}
+
+.height-6 {
+	height:60px;
+}

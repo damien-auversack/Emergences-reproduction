@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+	<h:head>
+		<title>emergences</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<link rel="shortcut icon" type="image/x-icon" href="#{request.contextPath}/img/favicon.ico"/>
+		<link href="#{request.contextPath}/css/bootstrap-grid.min.css" rel="stylesheet" type="text/css"/>
+		
+        <link href="#{request.contextPath}/css/style.css" rel="stylesheet" type="text/css"/>
+        <link href="#{request.contextPath}/css/styleReset.css" rel="stylesheet" type="text/css"/>
+        <link href="#{request.contextPath}/css/styleColor.css" rel="stylesheet" type="text/css"/>
+        <link href="#{request.contextPath}/css/styleFont.css" rel="stylesheet" type="text/css"/>
+        <link href="#{request.contextPath}/css/styleBorder.css" rel="stylesheet" type="text/css"/>
+	</h:head>
+	<body class="resetMarginPadding">
+		<ui:include src="../navbar-connected.xhtml"/>
+		
+		<h1 class='alignCenter' value="#{activiteControl.getCurrentUtilisateur()}">Gestion des utilisateurs</h1>	
+		<div class="container-fluid">
+			
+			<div class="row alignCenter">	
+				<div class="ml-auto mr-auto radius-2 width-Activity alignCenter">
+					
+						<h:dataTable id="tableUtilisateur" class='col-12 alignCenter pb-4'
+							value = "#{utilisateurControl.getAllUtilisateurs()}"
+							var = "utilisateur" > 
+								<h:column class='col-12 alignCenter'>	
+									<div class='col-12 bgLoginColor ml-auto mr-auto radius-2 width-Activity alignCenter'>
+										<h2 class='pt-4'>#{utilisateur.login}</h2>
+										
+										<h:form enctype="multipart/form-data" class="pb-3">
+											<h:inputFile value="#{utilisateurControl.uploadedFile}" class="pb-3">
+												<f:ajax listener="#{utilisateurControl.upload(utilisateur)}" render="@form"/>
+											</h:inputFile>
+											
+											<div class="pb-3">
+												<img class="ml-auto mr-auto" alt="Pas de photo de profile" src="data:image/jpg;base64,#{utilisateur.byteArrayToImage()}"></img>
+											</div>
+										</h:form>								
+										
+										<h:form id="form" class="pb-3">
+											<f:facet name="header">Rôle</f:facet>
+											<div class="pb-3">#{utilisateur.role}</div>
+											<h:commandButton value="Changer le rôle" action="#{utilisateurControl.changeRole(utilisateur)}" 
+					            				class="radius-1 cursorPointer lightsteelblueHover boxShadowInput borderNone height-5 bgGhostwhite font-xLarge font-Verdana">
+					            				<f:ajax execute="@form" render ="@form"/>
+					            			</h:commandButton>		
+				            			</h:form>
+				            			<h:form id="form2" class="pb-4">
+				            				<h:commandButton value="Liste des réunions de #{utilisateur.login}" action="#{navigationControl.doDetailsReunionUtilisateur(utilisateur.id)}"/>
+				            			</h:form>
+			            			</div>			
+								</h:column>
+						</h:dataTable>
+					
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

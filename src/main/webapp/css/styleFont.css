@@ -1,0 +1,13 @@
+/* Font */
+.font-5{
+	font-size: 20px;
+}
+.font-xLarge{
+	font-size: x-large;
+}
+.font-Verdana{
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.font-lighter {
+	font-weight: lighter;
+}

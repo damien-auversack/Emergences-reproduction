@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:o="http://omnifaces.org/ui">
+	<h:head>
+		<title>emergences</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<link rel="shortcut icon" type="image/x-icon" href="#{request.contextPath}/img/favicon.ico"/>
+		<link href="#{request.contextPath}/css/bootstrap-grid.min.css" rel="stylesheet" type="text/css"/>
+		
+        <link href="#{request.contextPath}/css/style.css" rel="stylesheet" type="text/css"/>
+        <link href="#{request.contextPath}/css/styleReset.css" rel="stylesheet" type="text/css"/>
+        <link href="#{request.contextPath}/css/styleColor.css" rel="stylesheet" type="text/css"/>
+        <link href="#{request.contextPath}/css/styleFont.css" rel="stylesheet" type="text/css"/>
+        <link href="#{request.contextPath}/css/styleBorder.css" rel="stylesheet" type="text/css"/>
+	</h:head>
+	<body class="resetMarginPadding">
+		<ui:include src="../navbar-connected.xhtml"/>
+		
+		<h1 class='col-8 ml-auto mr-auto pt-3 alignCenter' value="#{activiteControl.getCurrentUtilisateur()}">Gestion des utilisateurs</h1>	
+		<div class="container-fluid">
+			
+			<div class="row">	
+				<div class="bgLoginColor ml-auto mr-auto radius-2 mb-4 pt-4 pb-4 pl-4 pr-4 width-Activity alignCenter">
+					<o:form id="form">
+						<h:dataTable class='col-12'
+							value = "#{activiteControl.getActiviteByUserID(param.id)}"
+							var = "activite">
+							<h:column>
+								<f:facet name="header">Activités</f:facet> 
+								#{activite.nom}
+								<h:commandButton value="Désinscrire" 
+										action="#{activiteControl.deleteParticipant(param.id,activite)}" 
+			            				class="radius-1 cursorPointer lightsteelblueHover boxShadowInput width-full borderNone height-5 bgGhostwhite font-xLarge font-Verdana">
+			            				<f:ajax execute="@form" render ="@form"/>
+			            	</h:commandButton>	
+							</h:column>
+						</h:dataTable>
+					</o:form>
+					
+					<h:form>
+						<h:dataTable class='col-12'
+							value = "#{cycleControl.getCycleByUserID(param.id)}"
+							var = "cycle">
+							<h:column>
+								<f:facet name="header">Cycles</f:facet> #{cycle.nom}
+							</h:column>
+						</h:dataTable>
+					</h:form>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
