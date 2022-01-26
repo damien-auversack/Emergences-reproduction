@@ -5,6 +5,9 @@ Technologies : Jakarta EE.
 
 ## Description
 
+Projet réalisé dans le cadre d'un cours d'applications entreprise multi-tiers.
+
+Le but de l'application était de réaliser une adaptation du site : https://www.emergences.org/
 
 ## Images de présentation :
 <div>
