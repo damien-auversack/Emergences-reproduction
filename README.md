@@ -1,7 +1,7 @@
 # IP-Software | Projet Scolaire | [FR]
 ## Informations
 
-Technologies : Jakarta EE.
+Technologies : Jakarta EE, XHTML, CSS.
 
 Bibliothèques : Bootstrap(Only Grid-System). 
 
