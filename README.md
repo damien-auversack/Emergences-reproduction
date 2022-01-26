@@ -3,6 +3,8 @@
 
 Technologies : Jakarta EE.
 
+Bibliothèques : Bootstrap(Only Grid-System). 
+
 ## Description
 
 Projet réalisé dans le cadre d'un cours d'applications entreprise multi-tiers.
