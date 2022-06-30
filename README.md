@@ -14,6 +14,7 @@ Le but de l'application était de réaliser une adaptation du site : https://www
 ## Images de présentation :
 <div>
 <img align=top src="https://github.com/damien-auversack/Emergences-reproduction/blob/main/presentation_pictures/picture_01.png" width="800px">
-  
+</div>
+<div> 
 <img align=top src="https://github.com/damien-auversack/Emergences-reproduction/blob/main/presentation_pictures/picture_02.png" width="800px">
 </div>
